@@ -1,0 +1,13 @@
+composer create-project laravel/laravel SistemaAsistencia "9.*"
+git remote add origin https://github.com/SaraBalbin/Sistema-Asistencia.git
+
+
+
+cd C:\xampp\htdocs\SistemaAsistencia 
+php artisan serve
+
+php artisan make:migration create_teachers_table
+
+php artisan migrate
+php artisan migrate:fresh
+INSERT INTO `users`(`name`, `email`, `username`, `active`, `num_id`, `password`, `role`) VALUES ('admin', 'admin@admin.com', 'admin', 1, 1, 'admin', 1)
