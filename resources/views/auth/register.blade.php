@@ -14,13 +14,20 @@
         <div id="contenedor">
             <div id="contenedorcentrado">
                 <div id="login">
-                    <form id="registerform" form action="/register" method="POST">
+                    <form id="registerform" form action="/register2" method="POST">
                         @csrf
                         <label for="username">Usuario</label>
                         <input id="username" type="text" name="username" placeholder="Usuario" required>
 
                         <label for="username">Correo</label>
                         <input id="email" type="email" name="email" placeholder="Correo electronico" required>
+
+                        <label for="role">Tipo de usuario</label>
+                        <select name="role" id="role">
+                            <option value="Administrador">Administrador</option>
+                            <option value="Profesor">Profesor</option>
+                            <option value="Estudiante">Estudiante</option>
+                        </select>
                         
                         <label for="password">Contraseña</label>
                         <input id="password" type="password" placeholder="Contraseña" name="password" required>

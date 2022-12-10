@@ -40,9 +40,6 @@ body {
     
     background-color: #5f6769;
     
-    /*opacity: 0.50;
-    filter: alpha(opacity=50);*/
-    
     border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
@@ -55,8 +52,7 @@ body {
     box-sizing: border-box;
 }
 
-/* formulario de login */
-/* formulario de login */
+
 #login {
     width: 100%;
     max-width: 320px;
@@ -133,17 +129,8 @@ body {
     background-color: #3c4245;
     color:#dfcdc3;
 }
-/* formulario de login */
-/* formulario de login */
 
-/* seccion de la derecha */
-/* seccion de la derecha */
-/* por defecto */
 #derecho {
-    /*display: flex;
-    align-items:center;
-    justify-content:center;*/
-    
     text-align: center;
     width: 100%;
     
@@ -159,9 +146,6 @@ body {
     color:#ffffff;
 }
 
-.logo-empresa img {
-    width: 60%;
-}
 
 hr {
     border-top: 1px solid #ffffff;

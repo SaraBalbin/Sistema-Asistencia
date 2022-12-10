@@ -16,9 +16,16 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function register(RegisterRequest $request){
+    public function register2(RegisterRequest $request){
         
-        $user = User::create($request->validated());
+        // $user = User::create($request->validated());
+        $user = new User;
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->setPasswordAttribute($request->password);
+        $user->role = $request-> role;
+        $user->save();
         return redirect('/login')->with('success', "Account successfully registered.");
     }
 }

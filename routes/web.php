@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +22,42 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', [RegisterController::class, 'show']);
-Route::post('/register', [RegisterController::class, 'register']);
+// Auxiliar para registrar
+
+Route::get('/register2', [RegisterController::class, 'show']);
+Route::post('/register2', [RegisterController::class, 'register2']);
+
+
+# Manejo de Sesion
 
 Route::get('/login', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'login']);
-
-Route::get('/home', [HomeController::class, 'index']);
 Route::get('/logout', [LogoutController::class, 'logout']);
 
+
+# Redireccion a HOME
+
+Route::get('/homeAdmin', [HomeController::class, 'indexAdmin']);
+Route::get('/homeTeacher', [HomeController::class, 'indexTeacher']);
+Route::get('/homeStudent', [HomeController::class, 'index']);
+
+Route::get('/home', function () {
+    if( Auth::user() ) //se valida si esta logueado
+        if (Auth::user()->role =='Administrador')
+            return redirect('/homeAdmin');
+        else if (Auth::user()->role =='Profesor')
+            return redirect('/homeTeacher');
+        else
+            return redirect('/homeStudent');
+    else
+        return redirect('/login');
+});
+
+# Acciones con Usuario
+
+Route::get('/register', [UserController::class, 'showRegister']);
+Route::post('/register', [UserController::class, 'register']);
+Route::get('/adminUsers', [UserController::class, 'index']);
+Route::get('/showEdit/{id}', [UserController::class, 'showEdit']) ->name("user.showEdit");
+Route::get('/delete/{id}', [UserController::class, 'delete']) ->name("user.delete");
+Route::post('/edit', [UserController::class, 'edit']);

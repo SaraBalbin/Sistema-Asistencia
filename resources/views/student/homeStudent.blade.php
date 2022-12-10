@@ -10,7 +10,7 @@
     <h1>Home</h1>
 
     @auth
-        <p class="lead">Bienvenido {{auth() -> user() -> username}}</p>
+        <p class="lead">Bienvenido ESTUDIANTE {{auth() -> user() -> username}}</p>
         <p><a href='/logout'>Cerrar Sesion </a> </p>
     @endauth
 

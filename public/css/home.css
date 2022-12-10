@@ -1,0 +1,257 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+
+/* BARRA DE OPCIONES Y CONFIGURACION GENERAL */
+body{
+    min-height: 100vh;
+}
+
+.fa-2x {
+    font-size: 2em;
+}
+
+.fa {
+    position: relative;
+    display: table-cell;
+    width: 60px;
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+.pagina{
+    height: 100vh;
+    background-color: #719192;
+}
+
+.contenido{
+    padding: 0px;
+}
+
+.barraSuperior{
+    padding: 15px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+    color: #fff;
+}
+.content{
+    background-color: #ffffff;
+    height: 86vh;
+    padding: 15px;
+}
+
+.main-menu {
+    background: #212121;
+    border-right: 1px solid #e5e5e5;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    -webkit-transition: width .05s linear;
+    transition: width .05s linear;
+    -webkit-transform: translateZ(0) scale(1, 1);
+    z-index: 1000;
+}
+
+.main-menu>ul {
+    margin: 7px 0;
+}
+
+.main-menu li {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.main-menu li>a {
+    position: relative;
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: #999;
+    font-family: arial;
+    font-size: 14px;
+    width: 100%;
+    text-decoration: none;
+    -webkit-transform: translateZ(0) scale(1, 1);
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+
+}
+
+.main-menu .nav-icon {
+    position: relative;
+    display: table-cell;
+    width: 100%;
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+.main-menu .nav-text {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    width: 190px;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.main-menu>ul.logout {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+nav {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+nav ul,
+nav li {
+    outline: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu li:hover>a,
+nav.main-menu li.active>a,
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus,
+.dropdown-menu>.active>a,
+.dropdown-menu>.active>a:hover,
+.dropdown-menu>.active>a:focus,
+.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
+.dashboard-page nav.dashboard-menu ul li.active a {
+    color: #fff;
+    background-color: #5fa2db;
+}
+
+@font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+
+
+/* ADMINISTRACION DE USUARIOS */
+
+.title{
+    font-size: 25px;
+    display: inline-block;
+}
+
+.btn_new {
+    display: inline-block;
+    background: #5fa2db;
+    color: #fff;
+    padding: 6px 25px;
+    border-radius: 4px;
+    border: #ffffff;
+    margin: 20px
+}
+
+.btn_new:hover, .formulario button:hover{
+    background: #4175a2;
+    color: #fff;
+}
+
+.listado, .info_user{
+    border-collapse: collapse;
+    font-size: 12pt;
+    width: 100%;
+}
+
+.listado th{
+    text-align: left;
+    padding: 10px;
+    background: #4b87b1;
+    color: #fff;
+}
+
+.listado tr {
+    border: #719192 1px solid;
+}
+
+.listado tr:hover{
+    background: rgb(212, 220, 223)
+}
+
+.listado td, .info_user td{
+    padding: 10px;
+}
+
+.link_edit{
+    color: #0ca4ce;
+}
+
+.link_delete{
+    color: #f26b6b;
+}
+
+/* Crear Usuario */
+
+.formulario input {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 100%;
+    color: #1b262c;
+    
+    display: block;
+    width: 100%;
+    height: 40px;
+    
+    margin-bottom: 10px;
+    padding: 5px 5px 5px 10px;
+    
+    box-sizing: border-box;
+    
+    border-color: #719192;
+    border-radius: 3px 3px 3px 3px;
+}
+
+.formulario label{
+    padding: 5px 5px 0px 0px;
+}
+
+.formulario{
+    padding: 0px 20px;
+    /* margin: 0 auto; */
+}
+
+select {
+    border:1px solid #d9d9d9;
+    height:35px;
+    width: 100%;
+    position:relative;
+    border-color: #719192;
+    font-family: 'Titillium Web', sans-serif;
+  }
+
+.formulario button{
+    background: #5fa2db;
+    color: #fff;
+    padding: 6px 25px;
+    border-radius: 4px;
+    border: #ffffff;
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 200px;
+}
+
+/* Editar usuario */
+#id{
+    background-color: #cbcbcbab;
+}
