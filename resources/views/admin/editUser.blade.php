@@ -8,7 +8,7 @@
         <div class="formulario">
             <form form action="/edit"  method="POST">
                 @csrf
-                <table class ='info_user'>
+                <table class ='info_element'>
                 <tr>
                     <td>
                         <label for="id">ID</label>

@@ -147,7 +147,16 @@ nav.main-menu li.active>a,
 }
 
 
-/* ADMINISTRACION DE USUARIOS */
+/* Vistas Listado de registros */
+
+.tabla_registros{
+    overflow:scroll;
+    height:400px;
+}
+
+.listado{
+    width:500px;
+}
 
 .title{
     font-size: 25px;
@@ -169,7 +178,7 @@ nav.main-menu li.active>a,
     color: #fff;
 }
 
-.listado, .info_user{
+.listado, .info_element{
     border-collapse: collapse;
     font-size: 12pt;
     width: 100%;
@@ -190,8 +199,9 @@ nav.main-menu li.active>a,
     background: rgb(212, 220, 223)
 }
 
-.listado td, .info_user td{
+.listado td, .info_element td{
     padding: 10px;
+    /* vertical-align: super; */
 }
 
 .link_edit{
@@ -202,24 +212,34 @@ nav.main-menu li.active>a,
     color: #f26b6b;
 }
 
-/* Crear Usuario */
+.listCursos{
 
-.formulario input {
+}
+
+/* Crear elemento */
+
+.info_element td{
+    width: 40%;
+}
+.formulario input, .formulario textarea  {
     font-family: 'Titillium Web', sans-serif;
     font-size: 100%;
     color: #1b262c;
-    
     display: block;
     width: 100%;
-    height: 40px;
     
     margin-bottom: 10px;
     padding: 5px 5px 5px 10px;
-    
     box-sizing: border-box;
-    
     border-color: #719192;
     border-radius: 3px 3px 3px 3px;
+}
+
+.formulario input{
+    height: 40px;
+}
+.formulario textarea {
+    border:2px solid #4b5f60;
 }
 
 .formulario label{
@@ -232,11 +252,11 @@ nav.main-menu li.active>a,
 }
 
 select {
-    border:1px solid #d9d9d9;
-    height:35px;
+    border:2px solid #4b5f60;
+    border-radius: 2px;
+    height:36px;
     width: 100%;
     position:relative;
-    border-color: #719192;
     font-family: 'Titillium Web', sans-serif;
   }
 
@@ -251,7 +271,8 @@ select {
     width: 200px;
 }
 
-/* Editar usuario */
+
+/* Editar elemento */
 #id{
     background-color: #cbcbcbab;
 }

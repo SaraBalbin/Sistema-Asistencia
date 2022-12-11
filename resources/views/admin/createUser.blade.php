@@ -8,7 +8,7 @@
         <div class="formulario">
             <form form action="/register" method="POST">
                 @csrf
-                <table class ='info_user'>
+                <table class ='info_element'>
                 <tr>
                     <td>
                         <label for="name">Nombre</label>

@@ -25,7 +25,7 @@
                         </a>
                     </li>
                     <li class="has-subnav">
-                        <a href="#">
+                        <a href="/adminCourses">
                             <i class="fa fa-list fa-2x"></i>
                             <span class="nav-text">Cursos</span>
                         </a>
@@ -64,7 +64,7 @@
             <main class="col-10 contenido">
                 <br>
                 <div class ='barraSuperior'>
-                    <p>Bienvenido, ADMINISTRADOR {{auth() -> user() -> username}}</p>
+                    <p>Bienvenido, {{auth() -> user() -> name}} (Rol: Administrador)</p>
                 </div>
                 <div class ='content'>
                     @yield('title')

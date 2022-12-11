@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,11 @@ Route::get('/adminUsers', [UserController::class, 'index']);
 Route::get('/showEdit/{id}', [UserController::class, 'showEdit']) ->name("user.showEdit");
 Route::get('/delete/{id}', [UserController::class, 'delete']) ->name("user.delete");
 Route::post('/edit', [UserController::class, 'edit']);
+
+# Acciones con Curso
+Route::get('/registerCourse', [CourseController::class, 'showRegister']);
+Route::post('/registerCourse', [CourseController::class, 'register']);
+Route::get('/adminCourses', [CourseController::class, 'index']);
+Route::get('/showEditCourse/{id}', [CourseController::class, 'showEdit']) ->name("course.showEditCourse");
+Route::get('/deleteCourse/{id}', [CourseController::class, 'delete']) ->name("course.deleteCourse");
+Route::post('/editCourse', [CourseController::class, 'edit']);
