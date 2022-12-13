@@ -155,7 +155,7 @@ nav.main-menu li.active>a,
 }
 
 .listado{
-    width:500px;
+    width:100%;
 }
 
 .title{
@@ -173,7 +173,7 @@ nav.main-menu li.active>a,
     margin: 20px
 }
 
-.btn_new:hover, .formulario button:hover{
+.btn_new:hover, .formulario button:hover, .btn_other:hover{
     background: #4175a2;
     color: #fff;
 }
@@ -210,10 +210,6 @@ nav.main-menu li.active>a,
 
 .link_delete{
     color: #f26b6b;
-}
-
-.listCursos{
-
 }
 
 /* Crear elemento */
@@ -275,4 +271,37 @@ select {
 /* Editar elemento */
 #id{
     background-color: #cbcbcbab;
+}
+
+/* Tabla Asignacion de profesores */
+
+.tabla_registros_tipo2{
+    overflow:scroll;
+    height:300px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.title2{
+    font-size: 25px;
+}
+
+li{
+    font-size: 18px;
+}
+.btn_other{
+    background: #5fa2db;
+    color: #fff;
+    padding: 6px 25px;
+    border-radius: 4px;
+    border: #ffffff;
+}
+
+.tabla_registros_tipo3{
+    overflow:scroll;
+    height:400px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 15px;
 }

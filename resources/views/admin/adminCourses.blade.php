@@ -1,21 +1,23 @@
 @extends('admin.homeAdmin')
 
 @section('content')
-<div class="info_users">
+<div>
     <h2 class = "title"> Administracion de Cursos </h2>
     <a href="/registerCourse" class = "btn_new"> Crear Curso </a>
     <div class = "tabla_registros">
         <table class = "listado listCursos">
             <tr>
+                <th>ID</th>
                 <th>Codigo</th>
                 <th>Nombre</th>
                 <th>Metodologia</th>
                 <th>Salón</th>
                 <th WIDTH="500">Descripcion</th>
-                <th>Acciones</th>
+                <th></th>
             </tr>
             @foreach ($viewData["courses"] as $course)
             <tr>
+                <td> {{ $course["id"] }} </td>
                 <td> {{ $course["code"] }} </td>
                 <td> {{ $course["name"] }} </td>
                 <td> {{ $course["methodology"] }} </td>

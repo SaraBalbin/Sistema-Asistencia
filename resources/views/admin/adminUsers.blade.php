@@ -7,14 +7,16 @@
     <div class = "tabla_registros">
         <table class = "listado">
             <tr>
+                <th>ID</th>
                 <th>Nombre</th>
                 <th>Username</th>
                 <th>Correo</th>
                 <th>Rol</th>
-                <th>Acciones</th>
+                <th></th>
             </tr>
             @foreach ($viewData["users"] as $user)
             <tr>
+                <td> {{ $user["id"] }} </td>
                 <td> {{ $user["name"] }} </td>
                 <td> {{ $user["username"] }} </td>
                 <td> {{ $user["email"] }} </td>

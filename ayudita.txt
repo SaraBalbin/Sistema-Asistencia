@@ -9,6 +9,7 @@ php artisan serve
 php artisan make:migration create_teachers_table
 php artisan make:migration create_courses_table
 php artisan make:migration create_teacher_assignments_table
+php artisan make:model TeacherAssignment
 
 php artisan migrate
 php artisan migrate:fresh

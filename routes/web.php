@@ -70,3 +70,10 @@ Route::get('/adminCourses', [CourseController::class, 'index']);
 Route::get('/showEditCourse/{id}', [CourseController::class, 'showEdit']) ->name("course.showEditCourse");
 Route::get('/deleteCourse/{id}', [CourseController::class, 'delete']) ->name("course.deleteCourse");
 Route::post('/editCourse', [CourseController::class, 'edit']);
+
+# Asignar Profesor
+Route::get('/adminAssignment', [CourseController::class, 'indexAssignment']);
+Route::get('/showTeachers/{id}', [CourseController::class, 'showTeachers']) ->name("course.showTeachers");
+Route::get('/Assignment/{idCourse}{idTeacher}', [CourseController::class, 'Assignment']) ->name("course.assignment");
+Route::get('/deleteAssignment/{id}', [CourseController::class, 'deleteAssignment']) ->name("course.deleteAssignment");
+Route::post('/AssignmentSearch', [CourseController::class, 'AssignmentSearch']);
