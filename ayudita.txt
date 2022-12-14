@@ -1,8 +1,6 @@
 composer create-project laravel/laravel SistemaAsistencia "9.*"
 git remote add origin https://github.com/SaraBalbin/Sistema-Asistencia.git
 
-
-
 cd C:\xampp\htdocs\SistemaAsistencia 
 php artisan serve
 
@@ -10,10 +8,25 @@ php artisan make:migration create_teachers_table
 php artisan make:migration create_courses_table
 php artisan make:migration create_teacher_assignments_table
 php artisan make:migration create_student_enrollments_table
+php artisan make:migration create_lessons_table
+php artisan make:migration create_course_plan_table
 
 php artisan make:model TeacherAssignment
 php artisan make:model StudentEnrollment
+php artisan make:model CoursePlan
 
 php artisan migrate
 php artisan migrate:fresh
-INSERT INTO `users`(`name`, `email`, `username`, `active`, `num_id`, `password`, `role`) VALUES ('admin', 'admin@admin.com', 'admin', 1, 1, 'admin', 1)
+php artisan migrate:rollback 
+
+EXPLICACIONES
+
+TeacherAssignment
+Tabla que relaciona el id de un profesor con el id de un curso. Representa la asignacion de profesores a cursos
+
+StudentEnrollment
+Tabla que relacion el id de un estudiante con el id de un curso. Representa la Matricula
+
+CoursePlan
+Tabla que relaciona el id de un curso con el id de una leccion (clase)
+

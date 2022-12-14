@@ -32,7 +32,7 @@ body{
 }
 
 .barraSuperior{
-    padding: 15px;
+    padding: 15px 15px 10px 15px ;
     font-family: 'Titillium Web', sans-serif;
     font-size: 20px;
     color: #fff;
@@ -145,6 +145,24 @@ nav.main-menu li.active>a,
     font-weight: 300;
     src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 }
+.menu_super{
+    width: 100%;
+}
+.menu_super p{
+    margin: 0;
+    font-size: 15px;
+}
+.mensaje_bienv{
+    font-size: 20px !important;
+}
+img{
+    width: 50px;
+}
+.left{
+    text-align: center;
+    width: 9px;
+    padding-right: 20px;
+}
 
 
 /* Vistas Listado de registros */
@@ -161,6 +179,10 @@ nav.main-menu li.active>a,
 .title{
     font-size: 25px;
     display: inline-block;
+}
+.title2{
+    font-size: 25px;
+    display: block;
 }
 
 .btn_new {
@@ -202,6 +224,9 @@ nav.main-menu li.active>a,
 .listado td, .info_element td{
     padding: 10px;
     /* vertical-align: super; */
+}
+.botones{
+    text-align: center;
 }
 
 .link_edit{
@@ -281,7 +306,7 @@ select {
 
 
 /* Editar elemento */
-#id{
+input[readonly]{
     background-color: #cbcbcbab;
 }
 

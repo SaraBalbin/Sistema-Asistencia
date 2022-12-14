@@ -17,7 +17,7 @@
                 <td> {{$teacher -> id}} </td>
                 <td> {{$teacher -> name}} </td>
                 <td> {{$teacher -> email}} </td>
-                <td>
+                <td class ='botones'>
                 <a href="{{ route('course.assignment', ['idTeacher' => $teacher -> id, 'idCourse' => $viewData['idCourse']]) }}" class = "btn_other"> Asignar</a>
                 </td>
             </tr>

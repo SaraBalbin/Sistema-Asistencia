@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LessonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +19,6 @@ use App\Http\Controllers\CourseController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Auxiliar para registrar
 
 Route::get('/register2', [RegisterController::class, 'show']);
@@ -31,9 +27,9 @@ Route::post('/register2', [RegisterController::class, 'register2']);
 
 # Manejo de Sesion
 
-Route::get('/login', [LoginController::class, 'show']);
-Route::post('/login', [LoginController::class, 'login']);
-Route::get('/logout', [LogoutController::class, 'logout']);
+Route::get('/', [LoginController::class, 'show']);
+Route::post('/', [LoginController::class, 'login']);
+Route::get('/logout', [LoginController::class, 'logout']);
 
 
 # Redireccion a HOME
@@ -54,8 +50,9 @@ Route::get('/home', function () {
         return redirect('/login');
 });
 
-# Acciones con Usuario
+# ADMINISTRADOR
 
+# Acciones con Usuario
 Route::get('/register', [UserController::class, 'showRegister']);
 Route::post('/register', [UserController::class, 'register']);
 Route::get('/adminUsers', [UserController::class, 'index']);
@@ -85,3 +82,12 @@ Route::get('/showEnroll/{id_course}', [CourseController::class, 'showEnroll']) -
 Route::get('/deleteEnroll/{id_student_enrollments}', [CourseController::class, 'deleteEnroll']) ->name("course.deleteEnroll");
 Route::post('/enrollment', [CourseController::class, 'enrollment']);
 Route::post('/enrollmentSearch', [CourseController::class, 'enrollmentSearch']);
+
+# PROFESOR
+Route::get('/showCourses1', [CourseController::class, 'showCourses1']);
+Route::get('/createLesson/{id_course}', [LessonController::class, 'showCreate']) ->name("lesson.showCreate");;
+Route::post('/createLesson', [LessonController::class, 'create']);
+Route::get('/listLesson/{id_course}', [LessonController::class, 'listLesson']) ->name("lesson.listLesson");;
+Route::get('/showEditLesson/{id_lesson}{id_course}', [LessonController::class, 'showEditLesson']) ->name("lesson.showEditLesson");
+Route::get('/deleteLesson/{id_lesson}{id_course}', [LessonController::class, 'deleteLesson']) ->name("lesson.deleteLesson");
+Route::post('/editLesson', [LessonController::class, 'editLesson']);

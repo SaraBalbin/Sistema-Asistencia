@@ -180,9 +180,32 @@ class CourseController extends Controller {
                 $enroll->save();
             }
             return redirect('/adminEnroll');
-
         }
     }
+
+    # Metodos para ver cursos de profesor
+
+    public function showTeacherCourses(){
+        $teacher_id = auth()->user()->id;
+        $viewData = [];
+        $courseTeacher =  DB::table('teacher_assignments')
+                        ->select('courses.id as courses_id', 'courses.code as courses_code', 'courses.name as courses_name', 'courses.description as description', 'courses.classroom as classroom',)
+                        ->where("id_teacher", "=", $teacher_id)
+                        ->join("courses", "courses.id", "=", "teacher_assignments.id_course", 'left outer')
+                        ->get();
+        $viewData["courseTeacher"] = $courseTeacher;
+        return $viewData;
+    }
+
+    public function showCourses1() {
+        $viewData = $this->showTeacherCourses();
+        return view('teacher.showCourses1')->with("viewData", $viewData);
+    }
+
+    // public function showCourses2() {
+    //     $viewData = $this->showTeacherCourses();
+    //     return view('teacher.showCourses2')->with("viewData", $viewData);
+    // }
 
 
     

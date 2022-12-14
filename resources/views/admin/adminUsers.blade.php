@@ -21,7 +21,7 @@
                 <td> {{ $user["username"] }} </td>
                 <td> {{ $user["email"] }} </td>
                 <td> {{ $user["role"] }} </td>
-                <td>
+                <td class ='botones'>
                     <a href="{{ route('user.showEdit', ['id'=> $user['id']]) }}" class="link_edit">Editar</a>
                     <a href="{{ route('user.delete', ['id'=> $user['id']]) }}" class="link_delete">Eliminar</a>
                 </td>

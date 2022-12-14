@@ -23,7 +23,7 @@
                 <td> {{ $course["methodology"] }} </td>
                 <td> {{ $course["classroom"] }} </td>
                 <td> {{ $course["description"] }} </td>
-                <td>
+                <td class ='botones'>
                     <a href="{{ route('course.showEditCourse', ['id'=> $course['id']]) }}" class="link_edit">Editar</a>
                     <a href="{{ route('course.deleteCourse', ['id'=> $course['id']]) }}" class="link_delete">Eliminar</a>
                 </td>

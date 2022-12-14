@@ -17,7 +17,7 @@
                 <td> {{$student -> user_id}} </td>
                 <td> {{$student -> user_name}} </td>
                 <td> {{$student -> user_email}} </td>
-                <td>
+                <td class ='botones'>
                 <a href="{{ route('course.deleteEnroll', 
                     ['id_student_enrollments' => $student -> student_enrollments_id]) }}" class = "link_delete"> Eliminar</a>
                 </td>

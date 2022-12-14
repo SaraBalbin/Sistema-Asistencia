@@ -62,9 +62,16 @@
             </nav>
 
             <main class="col-10 contenido">
-                <br>
                 <div class ='barraSuperior'>
-                    <p>Bienvenido, {{auth() -> user() -> name}} (Rol: Administrador)</p>
+                    <table class = 'menu_super'>
+                        <td>
+                            <p class = 'mensaje_bienv'>Bienvenido, {{auth() -> user() -> name}} </p>
+                        </td>
+                        <td class="left">
+                            <img src="{{ asset('/img/perfil.png')}}"> <br>
+                            <p>Administrador</p>
+                        </td>
+                    </table>
                 </div>
                 <div class ='content'>
                     @yield('title')

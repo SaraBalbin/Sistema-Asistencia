@@ -14,7 +14,7 @@
         <div id="contenedor">
             <div id="contenedorcentrado">
                 <div id="login">
-                    <form id="loginform" form action="/login" method="POST">
+                    <form id="loginform" form action="/" method="POST">
                         @csrf
                         <label for="username">Usuario</label>
                         <input id="username" type="text" name="username" placeholder="Usuario" required>
