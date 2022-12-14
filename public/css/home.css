@@ -173,7 +173,7 @@ nav.main-menu li.active>a,
     margin: 20px
 }
 
-.btn_new:hover, .formulario button:hover, .btn_other:hover{
+.btn_new:hover, .formulario button:hover, .btn_other:hover, .link_edit:hover{
     background: #4175a2;
     color: #fff;
 }
@@ -205,11 +205,23 @@ nav.main-menu li.active>a,
 }
 
 .link_edit{
-    color: #0ca4ce;
+    background: #0ca4ce;
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 4px;
+    border: #ffffff;
 }
 
 .link_delete{
-    color: #f26b6b;
+    background: #f26b6b;
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 4px;
+    border: #ffffff;
+}
+.link_delete:hover{
+    background: #b82d2d;
+    color: #fff;
 }
 
 /* Crear elemento */
@@ -256,7 +268,7 @@ select {
     font-family: 'Titillium Web', sans-serif;
   }
 
-.formulario button{
+.formulario button {
     background: #5fa2db;
     color: #fff;
     padding: 6px 25px;
@@ -301,7 +313,19 @@ li{
 .tabla_registros_tipo3{
     overflow:scroll;
     height:400px;
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     margin-top: 15px;
+}
+
+/* Matricular Estudiantes */
+.matricular label, .matricular input {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+input[type="checkbox"]{
+    margin: 10px;
+    width:20px;
+    height:20px;
 }

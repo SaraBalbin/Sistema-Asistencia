@@ -10,7 +10,7 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Correo</th>
-                <th WIDTH="300"></th>
+                <th WIDTH="200"></th>
             </tr>
             @foreach ($viewData["teachers"] as $teacher)
             <tr>
@@ -18,7 +18,7 @@
                 <td> {{$teacher -> name}} </td>
                 <td> {{$teacher -> email}} </td>
                 <td>
-                <a href="{{ route('course.assignment', ['idTeacher' => $teacher -> id, 'idCourse' => $viewData['idCourse']]) }}" class = "btn_other"> Asignar Profesor</a>
+                <a href="{{ route('course.assignment', ['idTeacher' => $teacher -> id, 'idCourse' => $viewData['idCourse']]) }}" class = "btn_other"> Asignar</a>
                 </td>
             </tr>
         </a>

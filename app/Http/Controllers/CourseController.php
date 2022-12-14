@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TeacherAssignment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+use App\Models\TeacherAssignment;
+use App\Models\StudentEnrollment;
 use App\Models\Course;
 use App\Models\User;
 
@@ -17,7 +19,6 @@ class CourseController extends Controller {
     }
 
     public function register(Request $request){
-        
         $course = new Course;
         $course->code = $request->code;
         $course->name = $request->name;
@@ -48,7 +49,6 @@ class CourseController extends Controller {
     }
 
     public function edit(Request $request) {
-
         $id = $request->id;
         $course = Course::findOrFail($id);
         $course->code = $request->code;
@@ -58,7 +58,6 @@ class CourseController extends Controller {
         $course->methodology = $request-> methodology;
         $course->save();
         return redirect('/adminCourses');
-
     }
 
     # Metodos para asignar Profesor
@@ -116,8 +115,75 @@ class CourseController extends Controller {
         return redirect('/adminAssignment');
 
     }
+    # Metodos para matricular estudiante
 
+    public function indexEnroll() {
+        $viewData = [];
+        $viewData["courses"] = Course::all();
+        return view('admin.adminEnroll')->with("viewData", $viewData);
+    }
+
+    public function showStudents($id){
+        $viewData = [];
+        $students = User::select('id', 'name', 'email', 'role')
+                        ->where("role", "=", "Estudiante")
+                        ->get();
+        $viewData["students"] = $students;
+        $viewData["idCourse"] = $id;
+        return view('admin.showStudents')->with("viewData", $viewData);
+    }
+    
+    public function enrollment(Request $request){
+        foreach ($request['studentsEnroll'] as $id_student) {
+            $quantityEnrollment = StudentEnrollment::where(["id_student" => $id_student, 'id_course'  => $request['id']])
+                        ->count();
+            if ($quantityEnrollment == 0){
+                $enroll = new StudentEnrollment;
+                $enroll->id_student = $id_student;
+                $enroll->id_course = $request['id'];
+                $enroll->save();
+            }
+        }
+        return redirect('/adminEnroll');
+    }
+
+    public function showEnroll($id_course){
+        $viewData = [];
+        $courseStudents =  DB::table('student_enrollments')
+                        ->where("id_course", "=", $id_course)
+                        ->select('student_enrollments.id as student_enrollments_id', 'users.id as user_id', 'users.name as user_name', 'users.email as user_email')
+                        ->join("users", "student_enrollments.id_student", "=", "users.id")
+                        ->get();
+        $viewData["courseStudents"] = $courseStudents;
+        // return $viewData["courseStudents"];
+        return view('admin.showEnroll')->with("viewData", $viewData);
+    }
+
+    public function deleteEnroll($id_student_enrollments){
+        $enroll = StudentEnrollment::find($id_student_enrollments);
+        $enroll->delete();
+        return redirect('/adminEnroll');
+    }
+
+    public function enrollmentSearch(Request $request){
+        $student = User::where(['id' => $request['id_student'], 'role' => 'Estudiante'])
+            ->select('id')->count();
+        $course = Course::where(['id' => $request['id_course']])
+            ->select('id')->count();
+        if ($student > 0 and $course > 0) {
+            $quantityEnrollment = StudentEnrollment::where(["id_student" => $request['id_student'], 'id_course' => $request['id_course']])
+                ->count();
+            if ($quantityEnrollment == 0) {
+                $enroll = new StudentEnrollment;
+                $enroll->id_student = $request['id_student'];
+                $enroll->id_course = $request['id_course'];
+                $enroll->save();
+            }
+            return redirect('/adminEnroll');
+
+        }
+    }
 
 
     
-}
+ }

@@ -38,7 +38,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/adminEnroll">
                             <i class="fa fa-bar-chart-o fa-2x"></i>
                             <span class="nav-text"> Matricular Estudiante </span>
                         </a>

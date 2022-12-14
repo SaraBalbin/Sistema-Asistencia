@@ -77,3 +77,11 @@ Route::get('/showTeachers/{id}', [CourseController::class, 'showTeachers']) ->na
 Route::get('/Assignment/{idCourse}{idTeacher}', [CourseController::class, 'Assignment']) ->name("course.assignment");
 Route::get('/deleteAssignment/{id}', [CourseController::class, 'deleteAssignment']) ->name("course.deleteAssignment");
 Route::post('/AssignmentSearch', [CourseController::class, 'AssignmentSearch']);
+
+# Matricular estudiantes
+Route::get('/adminEnroll', [CourseController::class, 'indexEnroll']);
+Route::get('/showStudents/{id}', [CourseController::class, 'showStudents']) ->name("course.showStudents");
+Route::get('/showEnroll/{id_course}', [CourseController::class, 'showEnroll']) ->name("course.showEnroll");
+Route::get('/deleteEnroll/{id_student_enrollments}', [CourseController::class, 'deleteEnroll']) ->name("course.deleteEnroll");
+Route::post('/enrollment', [CourseController::class, 'enrollment']);
+Route::post('/enrollmentSearch', [CourseController::class, 'enrollmentSearch']);

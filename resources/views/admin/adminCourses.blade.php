@@ -25,7 +25,6 @@
                 <td> {{ $course["description"] }} </td>
                 <td>
                     <a href="{{ route('course.showEditCourse', ['id'=> $course['id']]) }}" class="link_edit">Editar</a>
-                    | 
                     <a href="{{ route('course.deleteCourse', ['id'=> $course['id']]) }}" class="link_delete">Eliminar</a>
                 </td>
             </tr>

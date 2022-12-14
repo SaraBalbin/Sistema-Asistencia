@@ -34,7 +34,7 @@
                     <div class="pie-form">
                         <p>Bienvenido al Sistema Academico de Asistencia (SAA).<br>Si no tiene una cuenta registrese a continuacion.</p>
                     </div>
-                    <p><a href='/register2' class="link-dark">Crear una cuenta </a> </p>
+                    <p><a href='/register2' class="crear_cuenta">Crear una cuenta </a> </p>
                 </div>
             </div>
         </div>

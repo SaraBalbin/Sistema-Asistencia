@@ -18,7 +18,7 @@
                         <label for="id_teacher">Identificacion del profesor</label>
                         <input id="id_teacher" type="number" name="id_teacher" placeholder="Profesor" required>
                     </td>
-                    <td class ='botonMitad'>
+                    <td>
                         <button type="submit" title="Ingresar" name="Asignar">Asignar</button>
                     </td>
                 </tr>
