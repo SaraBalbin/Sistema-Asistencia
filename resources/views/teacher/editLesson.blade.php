@@ -6,7 +6,7 @@
         <h2 class="title"> Crear Clase </h2>
         <a href="/showCourses1" class = "btn_new"> Volver</a>
         <div class="formulario">
-            <form form action="/createLesson" method="POST">
+            <form form action="/editLesson" method="POST">
                 @csrf
                 <table class ='info_element'>
                 <tr>

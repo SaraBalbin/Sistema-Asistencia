@@ -125,9 +125,16 @@ class CourseController extends Controller {
 
     public function showStudents($id){
         $viewData = [];
-        $students = User::select('id', 'name', 'email', 'role')
-                        ->where("role", "=", "Estudiante")
-                        ->get();
+        $students = DB::table('users')
+            ->select('users.id as user_id', 'name', 'email', 'role')
+            ->where("role", "=", "Estudiante")
+            ->leftJoin('student_enrollments', function ($join) use ($id) {
+                $join -> on('users.id', '=', 'student_enrollments.id_student')
+                        ->where("id_course", "=", $id);
+                })
+            ->whereNull('student_enrollments.id_student')
+            ->get();
+
         $viewData["students"] = $students;
         $viewData["idCourse"] = $id;
         return view('admin.showStudents')->with("viewData", $viewData);
@@ -135,16 +142,13 @@ class CourseController extends Controller {
     
     public function enrollment(Request $request){
         foreach ($request['studentsEnroll'] as $id_student) {
-            $quantityEnrollment = StudentEnrollment::where(["id_student" => $id_student, 'id_course'  => $request['id']])
-                        ->count();
-            if ($quantityEnrollment == 0){
-                $enroll = new StudentEnrollment;
-                $enroll->id_student = $id_student;
-                $enroll->id_course = $request['id'];
-                $enroll->save();
-            }
+            $enroll = new StudentEnrollment;
+            $enroll->id_student = $id_student;
+            $enroll->id_course = $request['id'];
+            $enroll->save();
         }
-        return redirect('/adminEnroll');
+        $id_course = $request['id'];
+        return $this -> showStudents($id_course);
     }
 
     public function showEnroll($id_course){
@@ -154,15 +158,17 @@ class CourseController extends Controller {
                         ->select('student_enrollments.id as student_enrollments_id', 'users.id as user_id', 'users.name as user_name', 'users.email as user_email')
                         ->join("users", "student_enrollments.id_student", "=", "users.id")
                         ->get();
+        $course = Course::where(['id' => $id_course])->first();
+
         $viewData["courseStudents"] = $courseStudents;
-        // return $viewData["courseStudents"];
+        $viewData["course"] = $course;
         return view('admin.showEnroll')->with("viewData", $viewData);
     }
 
-    public function deleteEnroll($id_student_enrollments){
+    public function deleteEnroll($id_student_enrollments, $id_course){
         $enroll = StudentEnrollment::find($id_student_enrollments);
         $enroll->delete();
-        return redirect('/adminEnroll');
+        return $this -> showEnroll($id_course);
     }
 
     public function enrollmentSearch(Request $request){
@@ -194,19 +200,7 @@ class CourseController extends Controller {
                         ->join("courses", "courses.id", "=", "teacher_assignments.id_course", 'left outer')
                         ->get();
         $viewData["courseTeacher"] = $courseTeacher;
-        return $viewData;
+        return view('teacher.showCourses')->with("viewData", $viewData);
     }
-
-    public function showCourses1() {
-        $viewData = $this->showTeacherCourses();
-        return view('teacher.showCourses1')->with("viewData", $viewData);
-    }
-
-    // public function showCourses2() {
-    //     $viewData = $this->showTeacherCourses();
-    //     return view('teacher.showCourses2')->with("viewData", $viewData);
-    // }
-
-
     
  }

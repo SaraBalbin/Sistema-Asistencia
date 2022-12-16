@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,15 +80,23 @@ Route::post('/AssignmentSearch', [CourseController::class, 'AssignmentSearch']);
 Route::get('/adminEnroll', [CourseController::class, 'indexEnroll']);
 Route::get('/showStudents/{id}', [CourseController::class, 'showStudents']) ->name("course.showStudents");
 Route::get('/showEnroll/{id_course}', [CourseController::class, 'showEnroll']) ->name("course.showEnroll");
-Route::get('/deleteEnroll/{id_student_enrollments}', [CourseController::class, 'deleteEnroll']) ->name("course.deleteEnroll");
+Route::get('/deleteEnroll/{id_student_enrollments}{id_course}', [CourseController::class, 'deleteEnroll']) ->name("course.deleteEnroll");
 Route::post('/enrollment', [CourseController::class, 'enrollment']);
 Route::post('/enrollmentSearch', [CourseController::class, 'enrollmentSearch']);
 
 # PROFESOR
-Route::get('/showCourses1', [CourseController::class, 'showCourses1']);
+
+# Administrar cursos
+Route::get('/showTeacherCourses', [CourseController::class, 'showTeacherCourses']);
 Route::get('/createLesson/{id_course}', [LessonController::class, 'showCreate']) ->name("lesson.showCreate");;
 Route::post('/createLesson', [LessonController::class, 'create']);
 Route::get('/listLesson/{id_course}', [LessonController::class, 'listLesson']) ->name("lesson.listLesson");;
 Route::get('/showEditLesson/{id_lesson}{id_course}', [LessonController::class, 'showEditLesson']) ->name("lesson.showEditLesson");
 Route::get('/deleteLesson/{id_lesson}{id_course}', [LessonController::class, 'deleteLesson']) ->name("lesson.deleteLesson");
 Route::post('/editLesson', [LessonController::class, 'editLesson']);
+
+# Administrar Registro de Asistencia
+Route::get('/showStudentsCourse/{id_course}{id_lesson}', [AttendanceController::class, 'showStudentsCourse']) ->name("attendance.showStudentsCourse");
+Route::post('/registerAttendance', [AttendanceController::class, 'registerAttendance']);
+Route::get('/showAttendance/{id_course}{id_lesson}', [AttendanceController::class, 'showAttendance']) ->name("attendance.showAttendance");
+Route::get('/deleteAttendance/{id_student_attendance}{id_course}{id_lesson}', [AttendanceController::class, 'deleteAttendance']) ->name("attendance.deleteAttendance");

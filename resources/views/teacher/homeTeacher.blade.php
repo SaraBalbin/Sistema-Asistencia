@@ -19,17 +19,11 @@
                         </a>
                     </li>
                     <li class="has-subnav">
-                        <a href="/showCourses1">
+                        <a href="/showTeacherCourses">
                             <i class="fa fa-list fa-2x"></i>
-                            <span class="nav-text">Clases</span>
+                            <span class="nav-text">Cursos</span>
                         </a>
                             
-                    </li>
-                    <li class="has-subnav">
-                        <a href="/adminAssignment">
-                            <i class="fa fa-folder-open fa-2x"></i>
-                            <span class="nav-text">Registro de Asistencia</span>
-                        </a>
                     </li>
                     <li>
                         <a href="#">

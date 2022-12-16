@@ -170,10 +170,12 @@ img{
 .tabla_registros{
     overflow:scroll;
     height:400px;
+    width:95%;
+    margin: 0 auto;
 }
 
 .listado{
-    width:100%;
+    width:90%;
 }
 
 .title{
@@ -344,6 +346,7 @@ li{
 }
 
 /* Matricular Estudiantes */
+
 .matricular label, .matricular input {
     display: inline-block;
     margin-bottom: 15px;
@@ -353,4 +356,14 @@ input[type="checkbox"]{
     margin: 10px;
     width:20px;
     height:20px;
+}
+
+/* Botones Listar clases */
+.botones a{
+    width: 50px;
+}
+
+/* Registrar asistencia */
+.input_asist{
+    width: 100%;
 }

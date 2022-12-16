@@ -4,6 +4,7 @@
 <div>
     <h2 class = "title"> Estudiantes Matriculados</h2>
     <a href="/adminEnroll" class = "btn_new"> Volver</a>
+    <p>Estudiantes que actualmente están matriculados en el curso {{$viewData['course'] -> name}}, código {{$viewData['course'] -> code}}</p>
     <div class = "tabla_registros_tipo3">
         <table class = "listado">
             <tr>
@@ -19,7 +20,7 @@
                 <td> {{$student -> user_email}} </td>
                 <td class ='botones'>
                 <a href="{{ route('course.deleteEnroll', 
-                    ['id_student_enrollments' => $student -> student_enrollments_id]) }}" class = "link_delete"> Eliminar</a>
+                    ['id_student_enrollments' => $student -> student_enrollments_id, 'id_course' => $viewData['course'] -> id ]) }}" class = "link_delete"> Eliminar</a>
                 </td>
             </tr>
         </a>

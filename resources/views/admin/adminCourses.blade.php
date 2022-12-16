@@ -12,8 +12,8 @@
                 <th>Nombre</th>
                 <th>Metodologia</th>
                 <th>Salón</th>
-                <th WIDTH="500">Descripcion</th>
-                <th></th>
+                <th WIDTH="450">Descripcion</th>
+                <th WIDTH="240"></th>
             </tr>
             @foreach ($viewData["courses"] as $course)
             <tr>

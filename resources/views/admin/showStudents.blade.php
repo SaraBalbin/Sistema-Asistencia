@@ -10,9 +10,10 @@
             <label class = 'info_Curso' for="id">Identificador del curso seleccionado: &nbsp;&nbsp;</label>
             <input class = 'info_Curso' type="text" name="id" value="{{$viewData['idCourse']}}" readonly>
             <br>
-
+            A continuacion aparecen los estudiantes que no están matriculados actualmente en este curso
+            <br>
             @foreach ($viewData["students"] as $student)
-            <input class = 'x' type="checkbox" name="studentsEnroll[]" value='{{$student -> id}}'>Nombre: {{$student -> name}} &nbsp;&nbsp; Correo: {{$student -> email}}</input>
+            <input class = 'x' type="checkbox" name="studentsEnroll[]" value='{{$student -> user_id}}'>Nombre: {{$student -> name}} &nbsp;&nbsp; Correo: {{$student -> email}}</input>
             <br>
             @endforeach
             <br>

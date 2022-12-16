@@ -20,7 +20,7 @@ class LessonController extends Controller
         $lesson->description_topic = $request->description_topic;
         $lesson->id_course = $request->id_course;
         $lesson->save();
-        return redirect('/showCourses1');
+        return redirect('/showTeacherCourses');
     }
     public function listLesson($id_course){
         $lessons = Lesson::where("id_course", "=", $id_course)
@@ -32,13 +32,15 @@ class LessonController extends Controller
         $viewData["lessons"] = $lessons;
         $viewData["name"] = $name;
         $viewData["id_course"] = $id_course;
+
         return view('teacher.adminLesson') ->with("viewData", $viewData);
+
     }
     
     public function deleteLesson($id_lesson, $id_course) {
         $lesson = Lesson::find($id_lesson);
         $lesson->delete();
-        return $this->listLesson($id_course);
+        return $this->listLesson($id_course, 1);
 
     }
     public function showEditLesson($id_lesson, $id_course){
@@ -57,7 +59,7 @@ class LessonController extends Controller
         $lesson->topic = $request->topic;
         $lesson->description_topic = $request->description_topic;
         $lesson->save();
-        return $this->listLesson($id_course);
+        return $this->listLesson($id_course, 1);
 
     }
 

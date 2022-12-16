@@ -4,7 +4,7 @@
 @section('content')
     <div class="registerform">
         <h2 class="title"> Crear Clase </h2>
-        <a href="/showCourses1" class = "btn_new"> Volver</a>
+        <a href="/showTeacherCourses" class = "btn_new"> Volver</a>
         <div class="formulario">
             <form form action="/createLesson" method="POST">
                 @csrf

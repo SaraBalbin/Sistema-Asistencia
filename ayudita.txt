@@ -10,6 +10,7 @@ php artisan make:migration create_teacher_assignments_table
 php artisan make:migration create_student_enrollments_table
 php artisan make:migration create_lessons_table
 php artisan make:migration create_course_plan_table
+php artisan make:migration create_attendance_table
 
 php artisan make:model TeacherAssignment
 php artisan make:model StudentEnrollment
@@ -27,6 +28,6 @@ Tabla que relaciona el id de un profesor con el id de un curso. Representa la as
 StudentEnrollment
 Tabla que relacion el id de un estudiante con el id de un curso. Representa la Matricula
 
-CoursePlan
-Tabla que relaciona el id de un curso con el id de una leccion (clase)
+Attendance
+Tabla que relaciona el id de un estudiante con el id de una leccion (clase), esto para ver que estudiante asistió o no a una clase
 

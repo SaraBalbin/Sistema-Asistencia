@@ -12,7 +12,7 @@
                 <th>Nombre</th>
                 <th>Salón</th>
                 <th WIDTH="500">Descripcion</th>
-                <th></th>
+                <th WIDTH="280"></th>
             </tr>
             @foreach ($viewData["courseTeacher"] as $course)
             <tr>
