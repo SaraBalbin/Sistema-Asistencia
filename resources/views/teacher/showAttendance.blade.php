@@ -3,7 +3,7 @@
 @section('content')
 <div>
     <h2 class = "title"> Asistencia de Clase </h2>
-    <a href="/listLesson/{{$viewData['id_course']}}"class = "btn_new"> Volver</a>
+    <a href="/listLessonTeacher/{{$viewData['id_course']}}"class = "btn_new"> Volver</a>
     <p>Estudiantes que asistieron a la clase #{{$viewData['lesson'] -> number}}, correspondiente al tema: {{$viewData['lesson'] -> topic}}</p>
     <div class = "tabla_registros_tipo3">
         <table class = "listado">

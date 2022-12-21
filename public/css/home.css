@@ -231,6 +231,13 @@ img{
     text-align: center;
 }
 
+.botones2{
+    display: inline-block;
+    width: 180px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
 .link_edit{
     background: #0ca4ce;
     color: #fff;
@@ -358,12 +365,17 @@ input[type="checkbox"]{
     height:20px;
 }
 
-/* Botones Listar clases */
-.botones a{
-    width: 50px;
-}
 
 /* Registrar asistencia */
 .input_asist{
     width: 100%;
+}
+
+/* Asistencia de estudiante */
+.asistencia{
+    color: #2daf68;
+}
+
+.noAsistencia{
+    color: #d42929;
 }

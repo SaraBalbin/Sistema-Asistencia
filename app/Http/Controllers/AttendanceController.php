@@ -11,6 +11,7 @@ use App\Models\Lesson;
 
 class AttendanceController extends Controller
 {
+    # Metodos asistencia para profesor
     public function showStudentsCourse($id_course, $id_lesson){
         $viewData = [];
 
@@ -38,7 +39,7 @@ class AttendanceController extends Controller
             $attendance->id_lesson = $request['idLesson'];
             $attendance->save();
         }
-        $ruta = '/showStudentsCourse/' . $request['idCourse'] . $request['idLesson'];
+        $ruta = '/showStudentsCourse/' . $request['idCourse'] .'/'. $request['idLesson'];
         return redirect($ruta);
     }
 

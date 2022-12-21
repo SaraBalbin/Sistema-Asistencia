@@ -190,7 +190,6 @@ class CourseController extends Controller {
     }
 
     # Metodos para ver cursos de profesor
-
     public function showTeacherCourses(){
         $teacher_id = auth()->user()->id;
         $viewData = [];
@@ -203,4 +202,16 @@ class CourseController extends Controller {
         return view('teacher.showCourses')->with("viewData", $viewData);
     }
     
+    # Metodos para listar cursos de estudiante
+    public function showStudentCourses(){
+        $student_id = auth()->user()->id;
+        $viewData = [];
+        $courseStudent =  DB::table('student_enrollments')
+                        ->select('courses.id as courses_id', 'courses.code as courses_code', 'courses.name as courses_name', 'courses.description as description', 'courses.classroom as classroom',)
+                        ->where("id_student", "=", $student_id)
+                        ->join("courses", "courses.id", "=", "student_enrollments.id_course", 'left outer')
+                        ->get();
+        $viewData["courseStudent"] = $courseStudent;
+        return view('student.showStudentCourses')->with("viewData", $viewData);
+    }
  }

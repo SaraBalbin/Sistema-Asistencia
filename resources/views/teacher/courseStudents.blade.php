@@ -3,7 +3,7 @@
 @section('content')
 <div>
     <h2 class = "title"> Estudiantes Sin Asistencia</h2>
-    <a href="/listLesson/{{$viewData['idCourse']}}" class = "btn_new"> Volver</a>
+    <a href="/listLessonTeacher/{{$viewData['idCourse']}}" class = "btn_new"> Volver</a>
     <div class = "tabla_registros_tipo3">
         <form action="/registerAttendance" method="post" class = "matricular">
             @csrf

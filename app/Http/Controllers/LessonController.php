@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
+use Illuminate\Support\Facades\DB;
+
 
 class LessonController extends Controller
 {
@@ -22,7 +24,7 @@ class LessonController extends Controller
         $lesson->save();
         return redirect('/showTeacherCourses');
     }
-    public function listLesson($id_course){
+    public function listLessonTeacher($id_course){
         $lessons = Lesson::where("id_course", "=", $id_course)
                         ->get();
         $name = Course::where("id", "=", $id_course)
@@ -34,9 +36,33 @@ class LessonController extends Controller
         $viewData["id_course"] = $id_course;
 
         return view('teacher.adminLesson') ->with("viewData", $viewData);
-
     }
-    
+
+    public function listLessonStudent($id_course){
+        $lessons = Lesson::where("id_course", "=", $id_course)
+                        ->get();
+        $name = Course::where("id", "=", $id_course)
+                        ->select('name')
+                        ->first();
+        $viewData = [];
+        $viewData["lessons"] = $lessons;
+        $viewData["name"] = $name;
+        $viewData["id_course"] = $id_course;
+        $viewData["attendance"] = [];
+
+        $id_student = auth()->user()->id;
+
+        foreach ($lessons as $lesson) {
+            $attendanceStudent =  DB::table('attendances')
+                    ->where(['id_lesson' => $lesson -> id, 'id_student' => $id_student])
+                    ->count();   
+            if ($attendanceStudent == 1){
+                array_push($viewData["attendance"], $lesson -> id);
+            }       
+        }
+        return view('student.listLesson') ->with("viewData", $viewData);
+    }
+
     public function deleteLesson($id_lesson, $id_course) {
         $lesson = Lesson::find($id_lesson);
         $lesson->delete();
