@@ -44,7 +44,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/infoAdmin">
                             <i class="fa fa-info fa-2x"></i>
                             <span class="nav-text">Información</span>
                         </a>

@@ -53,8 +53,34 @@ class UserController extends Controller{
         $user->role = $request-> role;
         $user->save();
         return redirect('/adminUsers');
-
     }
+
+    # Informacion 
+    public function infoAdmin(){
+        $id = auth()->user()->id;
+        $viewData = [];
+        $user = User::findOrFail($id);
+        $viewData["user"] = $user;
+        return view('admin.infoAdmin')->with("viewData", $viewData);
+    }
+
+    public function infoTeacher(){
+        $id = auth()->user()->id;
+        $viewData = [];
+        $user = User::findOrFail($id);
+        $viewData["user"] = $user;
+        return view('teacher.infoTeacher')->with("viewData", $viewData);
+    }
+
+
+    public function infoStudent(){
+        $id = auth()->user()->id;
+        $viewData = [];
+        $user = User::findOrFail($id);
+        $viewData["user"] = $user;
+        return view('student.infoStudent')->with("viewData", $viewData);
+    }
+
 
     
 }

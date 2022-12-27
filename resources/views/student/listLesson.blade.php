@@ -2,7 +2,7 @@
 
 @section('content')
 <div>
-    <h2 class = "title"> Clases - {{$viewData["name"]["name"]}} (ID: {{$viewData["id_course"] }}) </h2>
+    <h2 class = "title"> Clases - {{$viewData["name"]["name"]}}</h2>
     <a href="/showStudentCourses" class = "btn_new"> Volver</a>
     <div class = "tabla_registros">
         <table class = "listado listCursos">

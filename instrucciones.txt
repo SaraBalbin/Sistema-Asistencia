@@ -1,0 +1,37 @@
+INSTRUCCIONES
+Para probar el codigo siga las siguientes instrucciones
+
+1. Ir a la ruta C:\xampp\htdocs y abrir el IDE de su preferencia en esta.
+
+2. Ejecutar el comando
+git clone https://github.com/SaraBalbin/Sistema-Asistencia.git
+
+3. Ejecutar los comandos
+cd .\Sistema-Asistencia\
+composer install
+cp .env.example .env
+php artisan key:generate
+
+4. Crear la base de datos 'sistema'
+
+5. Ejecutar las migraciones 
+php artisan migrate
+
+6. Crear los datos por defecto en la BD
+php artisan db:seed
+
+7. Ejecutar el servidor
+php artisan serve
+
+
+USUARIOS POR DEFECTO
+Para ingresar puede usar los usuarios definidos por defecto.
+
+username: admin
+password: admin
+
+username: sramirez
+password: 1234
+
+username: fzapata
+password: 1234

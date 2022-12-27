@@ -22,3 +22,6 @@ Las funcionalidades se especifican a continuación.
 
 ### Funcionalidades comunes
 - Iniciar y cerrar sesion
+
+### Probar
+Seguir los pasos del archivo instrucciones.txt

@@ -26,7 +26,7 @@
                             
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="/infoStudent">
                             <i class="fa fa-info fa-2x"></i>
                             <span class="nav-text">Información</span>
                         </a>

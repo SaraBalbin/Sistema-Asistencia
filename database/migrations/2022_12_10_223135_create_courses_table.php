@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('code')->unique();
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->string('classroom');
             $table->string('methodology');
             $table->timestamps();

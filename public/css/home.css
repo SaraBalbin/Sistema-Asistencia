@@ -379,3 +379,39 @@ input[type="checkbox"]{
 .noAsistencia{
     color: #d42929;
 }
+
+/* Informacion Usuarios */
+.info_User{
+    font-size: 12pt;
+    width: 500px;
+    margin: 20px 0 0 20px;
+}
+
+.info_User td{
+    border-spacing:30px;
+    margin: 15px;
+    border: 5px solid rgb(255, 255, 255);
+}
+
+.columna1{
+    background: #7ca0c1;
+    color: #ffffff;
+    padding-left: 20px;
+}
+
+.columna2{
+    padding-left: 20px;
+}
+
+#footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background:#999;
+    color: white;
+    vertical-align: middle;
+    padding-top: 10px;
+
+ }

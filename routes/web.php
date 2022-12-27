@@ -20,21 +20,18 @@ use App\Http\Controllers\AttendanceController;
 |
 */
 
-// Auxiliar para registrar
-
-Route::get('/register2', [RegisterController::class, 'show']);
-Route::post('/register2', [RegisterController::class, 'register2']);
+# Auxiliar para registrar
+// Route::get('/register2', [RegisterController::class, 'show']);
+// Route::post('/register2', [RegisterController::class, 'register2']);
 
 
 # Manejo de Sesion
-
 Route::get('/', [LoginController::class, 'show']);
 Route::post('/', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
 
 # Redireccion a HOME
-
 Route::get('/homeAdmin', [HomeController::class, 'indexAdmin']);
 Route::get('/homeTeacher', [HomeController::class, 'indexTeacher']);
 Route::get('/homeStudent', [HomeController::class, 'indexStudent']);
@@ -104,3 +101,8 @@ Route::get('/deleteAttendance/{id_student_attendance}/{id_course}/{id_lesson}', 
 # ESTUDIANTE
 Route::get('/showStudentCourses', [CourseController::class, 'showStudentCourses']) -> middleware('activeSesion') -> middleware('studentAccess');
 Route::get('/listLessonStudent/{id_course}', [LessonController::class, 'listLessonStudent']) ->name("lesson.listLessonStudent") -> middleware('activeSesion') -> middleware('studentAccess');
+
+# RUTAS PARA INFORMACION
+Route::get('/infoAdmin', [UserController::class, 'infoAdmin']) -> middleware('activeSesion') -> middleware('adminAccess');
+Route::get('/infoTeacher', [UserController::class, 'infoTeacher']) -> middleware('activeSesion') -> middleware('teacherAccess');
+Route::get('/infoStudent', [UserController::class, 'infoStudent']) -> middleware('activeSesion') -> middleware('studentAccess');
