@@ -25,3 +25,10 @@ Las funcionalidades se especifican a continuación.
 
 ### Probar
 Seguir los pasos del archivo instrucciones.txt
+
+### Imágenes
+- Iniciar Sesion
+![](docs/Login.JPG)
+
+- Manejo de Usuario Admin
+![](docs/Admin-Users.JPG)
